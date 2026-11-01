@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suhail Ahmed</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+:root{--bg:#050505;--card:rgba(255,255,255,.04);--ink:#F3F7F4;--mute:#A3ABA5;--line:rgba(255,255,255,.12);--c:#9BF6B5;--d:#4ADE80;color-scheme:dark}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100vh;background:radial-gradient(60rem 38rem at 0% 0%,color-mix(in srgb,var(--c) 24%,transparent),transparent 60%),radial-gradient(52rem 40rem at 100% 100%,color-mix(in srgb,var(--d) 22%,transparent),transparent 60%),var(--bg);background-attachment:fixed;color:var(--ink);font:400 1.05rem/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;margin:0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:.4rem;overflow-x:auto;padding:.6rem 1rem;background:rgba(5,5,5,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav a{flex:none;padding:.5rem .8rem;text-decoration:none;color:var(--mute);font-weight:500;font-size:.92rem;border-bottom:2px solid transparent}
+nav a.on{color:var(--c);font-weight:700;border-bottom-color:transparent}
+nav a::before{content:"";display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:var(--c);margin-right:.45rem}
+.hero{padding:4rem 1.25rem 1.5rem}
+.hero.home .in{max-width:64rem;display:grid;grid-template-columns:1.25fr 1fr;gap:2rem;align-items:center}
+.frame{width:100%;max-width:20rem;aspect-ratio:3/4;justify-self:center;padding:2px;border-radius:22px;background:linear-gradient(135deg,var(--c),var(--d))}
+.frame>div{height:100%;border-radius:20px;background:#0A0C0A;display:grid;place-items:center;position:relative;overflow:hidden}
+.pill{position:absolute;left:1rem;right:1rem;bottom:1rem;padding:.5rem .8rem;border-radius:10px;background:rgba(255,255,255,.06);font-size:.8rem;color:var(--mute)}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem;align-items:center}
+a.btn{padding:.7rem 1.3rem;border-radius:999px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+a.btn.fill{background:linear-gradient(90deg,var(--c),var(--d));color:#04120A}
+.g{background:linear-gradient(90deg,var(--c),var(--d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.th{display:block;position:relative;margin-top:.7rem;aspect-ratio:4/3;padding:2px;border-radius:12px;background:linear-gradient(135deg,var(--c),var(--d));overflow:hidden}.th img{width:100%;height:100%;display:block;object-fit:contain;border-radius:10px;background:#0A0C0A}
+.doc{display:block;position:relative;margin-top:.7rem;padding:.55rem .8rem;border:1px dashed var(--c);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+#cr{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.92);display:grid;place-items:center;padding:1rem}
+#cr[hidden]{display:none}
+.crb{display:grid;gap:.8rem;justify-items:center;max-width:100%}
+#crt{margin:0;color:var(--mute);font-size:.95rem;text-align:center}
+#crw{position:relative;overflow:hidden;border-radius:12px;border:2px solid var(--c);touch-action:none;cursor:grab;background:#000}
+#cri{position:absolute;left:0;top:0;max-width:none;transform-origin:0 0;user-select:none;-webkit-user-drag:none}
+#crz{width:min(22rem,80vw);accent-color:var(--c)}
+.cra{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+.cra button{font:600 .95rem Inter,sans-serif;padding:.55rem 1rem;border-radius:8px;border:2px solid var(--c);background:#0A0C0A;color:var(--ink);cursor:pointer}
+.cra .pri{background:linear-gradient(90deg,var(--c),var(--d));color:#04120A;border-color:transparent}
+#lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.9);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s;cursor:zoom-out}
+#lb[hidden]{display:none}
+#lb.on{opacity:1;pointer-events:auto}
+#lb img{max-width:92vw;max-height:84vh;border-radius:12px;transform:scale(.55) rotate(-4deg);transition:transform .5s cubic-bezier(.2,.9,.3,1.25);box-shadow:0 0 0 2px var(--c),0 24px 90px color-mix(in srgb,var(--c) 45%,transparent)}
+#lb.on img{transform:none}
+#lb button{position:absolute;top:calc(1rem + env(safe-area-inset-top,0px));right:1rem;width:2.5rem;height:2.5rem;border-radius:50%;border:2px solid var(--c);background:#0A0C0A;color:var(--c);font-size:1.3rem;cursor:pointer}
+.th img{transition:transform .3s}.th:hover img{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){#lb,#lb img,.th img{transition:none}}
+.card .add{margin-top:.7rem;display:block}
+@media (max-width:700px){.hero.home .in{grid-template-columns:1fr}}
+.in{max-width:58rem;margin:0 auto}
+.hero h1{font-size:clamp(2.2rem,8vw,4.4rem);line-height:1.05;font-weight:800}
+.hero .sub{font-size:1.2rem;font-weight:600;margin:.6rem 0 0;background:linear-gradient(90deg,var(--c),var(--d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.intro{max-width:42rem;margin:1rem 0 0;font-size:1.08rem;color:var(--mute)}
+main{padding:2rem 1.25rem 5rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.card{background:linear-gradient(160deg,color-mix(in srgb,var(--c) 16%,transparent),color-mix(in srgb,var(--d) 7%,transparent));border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;position:relative;display:block;color:inherit;text-decoration:none}
+.card h3{font-size:1.1rem}.card .s{color:var(--c);font-weight:600;font-size:.92rem;margin:.1rem 0}
+.card .d{color:var(--mute);margin:.3rem 0 0;font-size:.98rem}
+.tags{display:flex;flex-wrap:wrap;gap:.55rem}
+.tag{padding:.4rem .9rem;border-radius:999px;color:#04120A;font-weight:600;background:linear-gradient(135deg,var(--c),var(--d));position:relative}
+.go:hover{border-color:var(--c)}
+.go h3{background:linear-gradient(90deg,var(--c),var(--d));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.3rem}
+.go{border-left:4px solid var(--c)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--d);outline-offset:2px}
+#bar{position:fixed;left:0;right:0;bottom:0;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom,0px));background:#0A0C0A;border-top:2px solid var(--c);display:none;gap:.6rem;justify-content:center;flex-wrap:wrap;z-index:9}
+#bar button,.add{font:600 .95rem "Nunito Sans",sans-serif;padding:.5rem 1rem;border-radius:8px;border:2px solid var(--c);background:var(--card);color:var(--ink);cursor:pointer}
+#bar .pri{background:linear-gradient(90deg,var(--c),var(--d));color:#04120A;border-color:transparent}
+.add{margin-top:1rem}
+.x{position:absolute;right:.5rem;top:.5rem;border:0;background:#DC2626;color:#fff;border-radius:6px;cursor:pointer}
+body.ed [contenteditable]{outline:2px dashed var(--c);outline-offset:2px;min-width:2rem}
+#bar select{font:600 .95rem Inter,sans-serif;padding:.5rem .7rem;border-radius:8px;border:2px solid var(--c);background:#0A0C0A;color:var(--ink)}
+#bar select[hidden]{display:none}
+#msg{text-align:center;color:var(--mute);font-size:.9rem}
+</style>
+</head>
+<body class="">
+<nav id="nav" aria-label="Pages"></nav>
+<div id="app"></div>
+<div id="lb" hidden=""><img alt=""><button aria-label="Close">×</button></div>
+<div id="cr" hidden=""><div class="crb"><p id="crt">Drag the picture to position it, and use the slider to zoom.</p><div id="crw"><img id="cri" alt=""></div><input type="range" id="crz" min="1" max="4" step="0.01" value="1" aria-label="Zoom"><div class="cra"><button class="pri" id="crok">Use this crop</button><button id="crsk">Skip crop</button><button id="crcx">Cancel</button></div></div></div>
+<div id="bar"><span id="msg"></span><select id="th" aria-label="Colour theme" fdprocessedid="f1wgpj"><option value="0">Black &amp; Light Green</option><option value="1">Midnight Blue</option><option value="2">Charcoal Orange</option><option value="3">Slate Purple</option><option value="4">Emerald Dark</option></select><button id="b1" hidden="">Edit this website</button><button class="pri" id="b2" fdprocessedid="7j86ot">Save and publish</button><button id="b3" fdprocessedid="batyx">Cancel</button></div>
+<script type="application/json" id="data">{"name":"Suhail Ahmed","photo":"/_blob/fd4412bcb9dd65747f2d62b09cc1c94e","role":"Petroleum & Natural Gas Engineer · HSE Professional","tag":"First position holder, NEBOSH · IOSH · OSHA certified, with research in sustainable proppants for hydraulic fracturing.","pages":[{"id":"home","t":"Home","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"Tap a colour to open that page.","items":[]},{"id":"about","t":"About","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"Engineer, safety professional and researcher.","items":[{"t":"Who I am","s":"Karachi, Pakistan","d":"I graduated from Mehran University of Engineering & Technology (Shaheed Z.A. Bhutto Campus, Khairpur Mir’s) as first position holder and silver medalist. I have two years of HSE experience in oil & gas, petrochemical and turnaround projects in Pakistan and Qatar, and I am looking for a Master’s program starting in 2027."}]},{"id":"experience","t":"Experience","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"Field work in Pakistan and Qatar.","items":[{"t":"HSE Supervisor","s":"OK International Company, Thar Coal Project · 2026","d":"Supervised site safety on the Thar Coal Project."},{"t":"Safety Officer","s":"Q-Chem, Qatar (via Qcon) · Sep 2025 – Feb 2026","d":"Safety Officer and permit receiver during the QChem II turnaround."},{"t":"Trainee Engineer","s":"Sprint Oil & Gas Services, Islamabad · Jan – Mar 2025","d":"Well intervention, pressure pumping and laboratory work."}]},{"id":"research","t":"Research","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"Hydraulic fracturing, simulation and drilling data.","items":[{"t":"Sustainable proppant from waste","s":"BE thesis · ICEWS 2025","d":"Proppant from fly ash and recycled bauxite to lower cost and environmental impact.","f":[{"u":"/_blob/8b89e4d7324d1070c1c600ce0fff1fdd","ct":"image/jpeg"},{"u":"/_blob/d888122fbfb262af152738cdae4208d9","ct":"image/jpeg"},{"u":"/_blob/754f1dd7a0851f3361aa96b40619e0e4","ct":"image/jpeg"}]},{"t":"Proppant conductivity vs production","s":"OPM Flow","d":"Simulation linking proppant conductivity to well production."},{"t":"Proppant settling study","s":"Python","d":"Haider-Levenspiel vs Schiller-Naumann drag with a Brent-Dekker solver."},{"t":"Kick detection with machine learning","s":"Software-only study","d":"Detecting kicks and lost circulation with fewer false alarms."},{"t":"VLP of a well","s":"PROSPER · Apr 2024","d":"Choke and bottom-hole parameters."},{"t":"Oil well modelling","s":"PROSPER · Dec 2023","d":"Well model built in PROSPER."},{"t":"Sucker rod pump","s":"Sep – Oct 2023","d":"Artificial lift method study."},{"t":"Refinery process model","s":"Feb 2023","d":"Mini project with a physical model."}]},{"id":"education","t":"Education","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"","items":[{"t":"BE, Petroleum and Natural Gas Engineering","s":"MUET SZAB Campus · 2020 – 2024","d":"First position holder, silver medalist, CGPA 3.4/4.00."},{"t":"Diploma of Associate Engineering (Civil)","s":"SBTE · 2021","d":""}]},{"id":"skills","t":"Skills","c":"#9BF6B5","d":"#67E8F9","k":"tags","intro":"Software and safety competencies.","items":[{"t":"MBAL"},{"t":"PROSPER"},{"t":"CMG"},{"t":"tNavigator"},{"t":"OPM Flow"},{"t":"OpenFOAM"},{"t":"SimScale"},{"t":"MATLAB"},{"t":"Python"},{"t":"Google Colab"},{"t":"Permit to Work"},{"t":"HIRA / JSA"},{"t":"LOTO"},{"t":"Confined Space"},{"t":"Fire Safety"},{"t":"Incident Investigation"}]},{"id":"certifications","t":"Certifications","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"","items":[{"t":"NEBOSH IGC"},{"t":"IOSH Managing Safely"},{"t":"OSHA"},{"t":"OSHA 30-Hour"},{"t":"H2S & Breathing Apparatus"},{"t":"LOTO"},{"t":"First Aid / CPR / AED"},{"t":"BLS / ACLS"},{"t":"ISO 9001 / 14001 / 45001"},{"t":"Certified Safety Officer"},{"t":"Respirator Fit Test"}]},{"id":"awards","t":"Awards","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"","items":[{"t":"Silver Medalist and Best Graduate Student","s":"MUET · Feb 2025","d":""},{"t":"Certificate of Excellence","s":"MUET · Feb 2025","d":""},{"t":"PetroBowl Regional Qualifier","s":"SPE KSA, Khobar · 31 Jul 2024","d":"","f":[{"u":"/_blob/50236fe9b3b3ff9ed5e9c707a21c01f2","ct":"image/jpeg"}]},{"t":"3rd Position, Annual Poster Exhibition","s":"Nov 2024","d":""},{"t":"Meritorious Student Scholarship","s":"Government of Sindh · Apr 2024","d":""},{"t":"Ehsaas Scholarship","s":"HEC Pakistan · Aug 2021","d":""}]},{"id":"conferences","t":"Conferences","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"","items":[{"t":"ICEWS 2025","s":"Author and presenter","d":"Energy & Water Sustainability."},{"t":"30th ATC & Oil Show 2024","s":"Delegate · SPE & PAPG","d":""},{"t":"E3 Conference","s":"Marietta College & PioPetro · 2022, 2023","d":""},{"t":"International Youth Conference","s":"8th and 9th editions · UN-Habitat","d":""},{"t":"LCOY Sindh 2024","s":"1st Provincial Local Conference of Youth","d":""}]},{"id":"trainings","t":"Trainings","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"","items":[{"t":"HIRA (TUV GA)"},{"t":"Fire Safety Inspection (ITCILO)"},{"t":"Fire Safety Management (ITCILO)"},{"t":"ISO 45001:2018"},{"t":"Well Servicing (LearnToDrill)"},{"t":"Wireless Fire Detection (IFSM)"},{"t":"Oil & Gas Operations (Duke University)"},{"t":"Drilling Engineering Internship (OPA Energy)"}]},{"id":"contact","t":"Contact","c":"#9BF6B5","d":"#67E8F9","k":"cards","intro":"Open to Master’s supervision and HSE roles.","items":[{"t":"Email","s":"rajpersuhailahmed@gmail.com","d":"","h":"mailto:rajpersuhailahmed@gmail.com"},{"t":"Pakistan (WhatsApp)","s":"+92 304 0266289","d":"","h":"https://wa.me/923040266289"},{"t":"Qatar","s":"+974 3046 0470","d":"","h":"tel:+97430460470"},{"t":"LinkedIn","s":"Suhail Ahmed","d":"","h":"https://linkedin.com/in/suhail-ahmed-rajper-389146253"},{"t":"Location","s":"Karachi, Pakistan","d":""}]}]}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);const TH=[{n:'Black & Light Green',c:'#9BF6B5',d:'#67E8F9',bg:'#050505'},{n:'Midnight Blue',c:'#7DD3FC',d:'#818CF8',bg:'#050A18'},{n:'Charcoal Orange',c:'#FDBA74',d:'#FB923C',bg:'#141210'},{n:'Slate Purple',c:'#C4B5FD',d:'#F0ABFC',bg:'#0F0D18'},{n:'Emerald Dark',c:'#6EE7B7',d:'#34D399',bg:'#04120C'}];const th=()=>TH[D.theme||0]||TH[0];
+let ed=false,art=null;const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const E=(p,v,tag,cls)=>`<${tag}${cls?' class="'+cls+'"':''}${ed?' contenteditable="true" data-p="'+p+'"':''}>${esc(v)}</${tag}>`;
+function render(){
+ const id=(location.hash||'#home').slice(1);let i=D.pages.findIndex(x=>x.id===id);if(i<0)i=0;const p=D.pages[i];
+ 
+ D.pages.forEach(x=>{x.c=th().c;x.d=th().d});const r=document.documentElement.style;r.setProperty('--c',th().c);r.setProperty('--d',th().d);r.setProperty('--bg',th().bg);$('#nav').innerHTML=D.pages.map(x=>`<a href="#${x.id}" style="--c:${x.c}" class="${x.id===p.id?'on':''}">${esc(x.t)}</a>`).join('');
+ let h='';
+ if(i===0){h=`<header class="hero home"><div class="in"><div>${E('name',D.name,'h1')}${E('role',D.role,'p','sub')}${E('tag',D.tag,'p','intro')}<div class="cta"><a class="btn fill" href="#research">View my work ↗</a><a class="btn" href="#contact">Start a conversation</a></div></div><div class="frame"><div>${D.photo?'<img src="'+esc(D.photo)+'" alt="Suhail Ahmed">':''}<svg style="${D.photo?'display:none':''}" viewBox="0 0 200 260" width="70%" aria-hidden="true"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9BF6B5"/><stop offset="1" stop-color="#4ADE80"/></linearGradient></defs><circle cx="100" cy="85" r="45" fill="none" stroke="url(#gg)" stroke-width="2.5"/><path d="M25 250 A75 75 0 0 1 175 250" fill="none" stroke="url(#gg)" stroke-width="2.5"/></svg>${ed?'<button class="add" id="ph" style="position:absolute;top:.7rem;left:.7rem;margin:0">Change photo</button>':''}<span class="pill">● Open to Master’s supervision, 2027</span></div></div></div></header><main><div class="in"><div class="grid">${D.pages.slice(1).map(x=>`<a class="card go" style="--c:${x.c};--d:${x.d}" href="#${x.id}"><h3>${esc(x.t)}</h3><p class="d">${esc(x.items.length)} entries</p></a>`).join('')}</div></div></main>`}
+ else{
+  const items=p.items.map((it,j)=>{const q=`pages.${i}.items.${j}.`;const x=ed?`<button class="x" data-del="${j}" aria-label="Delete">×</button>`:'';
+   if(p.k==='tags')return `<span class="tag">${E(q+'t',it.t,'span')}${ed?`<button class="x" style="position:static;margin-left:.4rem" data-del="${j}">×</button>`:''}</span>`;
+   const fl=(it.f||[]).map((f,k)=>{const b=ed?`<button class="x" style="right:.3rem;top:.3rem" data-df="${j}.${k}">×</button>`:'';const tg=ed?'div':'a';const at=ed?'':` href="${esc(f.u)}" target="_blank" rel="noopener"`;return f.ct==='application/pdf'?`<${tg} class="doc"${at}>📄 View document${b}</${tg}>`:`<${tg} class="th"${at}><img src="${esc(f.u)}" alt="">${b}</${tg}>`}).join('');const up=ed?`<button class="add" data-up="${j}">+ Add picture or document</button>`:'';
+   const inner=`${x}${E(q+'t',it.t,'h3')}${it.s||ed?E(q+'s',it.s,'p','s'):''}${it.d||ed?E(q+'d',it.d,'p','d'):''}${fl}${up}`;
+   return it.h&&!ed?`<a class="card" href="${esc(it.h)}">${inner}</a>`:`<div class="card">${inner}</div>`}).join('');
+  h=`<header class="hero"><div class="in"><h1 class="g">${esc(p.t)}</h1>${p.intro||ed?E(`pages.${i}.intro`,p.intro,'p','intro'):''}</div></header><main><div class="in"><div class="${p.k==='tags'?'tags':'grid'}">${items}</div>${ed?`<button class="add" data-add="${i}">+ Add entry</button>`:''}</div></main>`}
+ $('#app').innerHTML=h;document.title=(i?p.t+' – ':'')+D.name;
+}
+function setP(path,v){const k=path.split('.');let o=D;for(let n=0;n<k.length-1;n++)o=o[k[n]];o[k[k.length-1]]=v}
+document.addEventListener('input',e=>{const p=e.target.dataset&&e.target.dataset.p;if(p)setP(p,e.target.textContent)});
+document.addEventListener('click',e=>{const t=e.target;
+ if(t.closest('#lb')){closeLb();return}
+ const a=t.closest('a.th');if(a&&!ed){e.preventDefault();openLb(a.getAttribute('href'));return}
+ if(t.dataset.del!==undefined){const i=D.pages.findIndex(x=>x.id===(location.hash||'#home').slice(1));D.pages[i].items.splice(+t.dataset.del,1);render()}
+ if(t.id==='ph')pickPhoto();
+ if(t.dataset.up!==undefined)pickFile(+t.dataset.up);
+ if(t.dataset.df!==undefined){const [j,k]=t.dataset.df.split('.');D.pages[cur()].items[+j].f.splice(+k,1);render()}
+ if(t.dataset.add!==undefined){D.pages[+t.dataset.add].items.push({t:'New entry',s:'',d:''});render()}});
+async function pickPhoto(){const a=await claude.use('assets');if(!a){$('#msg').textContent='Photo upload is not available.';return}
+ const f=document.createElement('input');f.type='file';f.accept='image/*';f.onchange=async()=>{try{$('#msg').textContent='Uploading…';const up=await cropFile(f.files[0],3/4);if(!up){$('#msg').textContent='';return}const r=await a.upload(up);D.photo='/_blob/'+r.id;$('#msg').textContent='Photo added. Now press Save and publish.';render()}catch(e){$('#msg').textContent='Upload failed.'}};f.click()}
+function cropFile(file,ratio){return new Promise(res=>{const url=URL.createObjectURL(file),im=$('#cri'),box=$('#cr'),w=$('#crw'),z$=$('#crz');
+ const W=Math.round(Math.min(innerWidth*.86,innerHeight*.56*ratio,420)),H=Math.round(W/ratio);w.style.width=W+'px';w.style.height=H+'px';
+ im.onload=()=>{const iw=im.naturalWidth,ih=im.naturalHeight,s0=Math.max(W/iw,H/ih);let z=1,ox=(W-iw*s0)/2,oy=(H-ih*s0)/2,drag=null;z$.value=1;
+  const draw=()=>{const s=s0*z;ox=Math.min(0,Math.max(W-iw*s,ox));oy=Math.min(0,Math.max(H-ih*s,oy));im.style.transform='translate('+ox+'px,'+oy+'px) scale('+s+')'};draw();
+  w.onpointerdown=e=>{drag={x:e.clientX,y:e.clientY,ox,oy};w.setPointerCapture(e.pointerId)};
+  w.onpointermove=e=>{if(!drag)return;ox=drag.ox+e.clientX-drag.x;oy=drag.oy+e.clientY-drag.y;draw()};
+  w.onpointerup=w.onpointercancel=()=>{drag=null};
+  z$.oninput=()=>{const cx=(W/2-ox)/(s0*z),cy=(H/2-oy)/(s0*z);z=+z$.value;ox=W/2-cx*s0*z;oy=H/2-cy*s0*z;draw()};
+  const done=v=>{box.hidden=true;URL.revokeObjectURL(url);res(v)};
+  $('#crok').onclick=()=>{const s=s0*z,c=document.createElement('canvas');c.width=ratio>=1?1200:900;c.height=Math.round(c.width/ratio);c.getContext('2d').drawImage(im,-ox/s,-oy/s,W/s,H/s,0,0,c.width,c.height);c.toBlob(b=>done(b),'image/jpeg',.9)};
+  $('#crsk').onclick=()=>done(file);$('#crcx').onclick=()=>done(null);box.hidden=false};
+ im.src=url})}
+function openLb(u){const l=$('#lb');l.querySelector('img').src=u;l.hidden=false;requestAnimationFrame(()=>requestAnimationFrame(()=>l.classList.add('on')))}
+function closeLb(){const l=$('#lb');l.classList.remove('on');setTimeout(()=>{l.hidden=true},350)}
+addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+const cur=()=>{const i=D.pages.findIndex(x=>x.id===(location.hash||'#home').slice(1));return i<0?0:i};
+async function pickFile(j){const a=await claude.use('assets');if(!a){$('#msg').textContent='Upload is not available.';return}
+ const f=document.createElement('input');f.type='file';f.accept='image/*,application/pdf';f.multiple=true;
+ f.onchange=async()=>{try{$('#msg').textContent='Uploading…';const it=D.pages[cur()].items[j];it.f=it.f||[];for(const file of f.files){let up=file;if(file.type.startsWith('image/')){up=await cropFile(file,4/3);if(!up)continue}const r=await a.upload(up);it.f.push({u:'/_blob/'+r.id,ct:r.contentType||up.type})}$('#msg').textContent='Added. Now press Save and publish.';render()}catch(e){$('#msg').textContent='Upload failed.'}};f.click()}
+function mode(on){const s=$('#th');s.hidden=!on;if(on&&!s.options.length)s.innerHTML=TH.map((x,i)=>'<option value="'+i+'">'+x.n+'</option>').join('');s.value=D.theme||0;ed=on;document.body.classList.toggle('ed',on);$('#b1').hidden=on;$('#b2').hidden=!on;$('#b3').hidden=!on;$('#msg').textContent=on?'Tap any text to change it.':'';render()}
+async function save(){try{$('#msg').textContent='Saving…';const c=document.documentElement.cloneNode(true);
+ c.querySelector('#data').textContent=JSON.stringify(D).replace(/</g,'\\u003c');c.querySelector('#app').innerHTML='';c.querySelector('#nav').innerHTML='';
+ c.removeAttribute('style');c.querySelector('body').className='';c.querySelector('#bar').removeAttribute('style');c.querySelector('#msg').textContent='';
+ await art.publish('<!DOCTYPE html>\n'+c.outerHTML)}catch(err){$('#msg').textContent='Could not save: '+(err&&err.code||'try again')}}
+$('#th').onchange=e=>{D.theme=+e.target.value;render()};$('#b1').onclick=()=>mode(true);$('#b2').onclick=save;$('#b3').onclick=()=>location.reload();
+addEventListener('hashchange',render);render();
+(async()=>{try{const u=await claude.use('user');const a=await claude.use('artifact');
+ if(a&&u&&u.canEdit()){art=a;$('#bar').style.display='flex'}}catch(e){}})();
+</script>
+
+
+<span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span><span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span><span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span><span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
